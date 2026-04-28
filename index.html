@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ahmed Essam | Portfolio</title>
+  <meta
+    name="description"
+    content="Ahmed Essam - Creative Flutter Developer building smooth and functional mobile apps."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar container">
+      <a href="#home" class="brand" aria-label="Ahmed Essam home">Ahmed Essam</a>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="navLinks"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#feedback">Feedback</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
+        <span class="theme-icon" aria-hidden="true">🌙</span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <p class="eyebrow">Flutter Developer Portfolio</p>
+          <h1>Ahmed Essam</h1>
+          <p class="hero-headline">
+            Creative Flutter Developer | Turning Ideas into Mobile Apps
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#" download>Download CV</a>
+            <a class="btn btn-secondary" href="#projects">View Projects</a>
+          </div>
+        </div>
+        <div class="hero-visual reveal reveal-delay-1">
+          <div class="avatar-card">
+            <img class="profile-photo" src="assets/1.jpg" alt="Ahmed Essam profile photo" />
+            <p>Ahmed Essam - Flutter Developer</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title reveal">About Me</h2>
+        <div class="about-card reveal reveal-delay-1">
+          <p>
+            I'm a junior Flutter developer working as a freelancer, passionate about building smooth and
+            functional mobile apps. I specialize in developing cross-platform applications using the
+            Flutter framework, with solid skills in state management and integrating RESTful APIs. One of
+            my key projects is a fully functional e-commerce app, which strengthened my understanding of
+            real-world development workflows. I take pride in delivering creative solutions, meeting
+            deadlines consistently, and adapting flexibly to project requirements. Whether it's a startup
+            MVP or a feature update, I'm committed to writing clean, maintainable code. Let's bring your
+            app idea to life.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="section">
+      <div class="container">
+        <h2 class="section-title reveal">Education</h2>
+        <div class="timeline reveal reveal-delay-1">
+          <article class="timeline-item card">
+            <span class="timeline-dot"></span>
+            <h3>Bachelor's Degree in Computer Science</h3>
+            <p>Graduation Grade: Good</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="section-title reveal">Projects</h2>
+        <div class="grid cards-grid">
+          <article class="card project-card reveal">
+            <h3>E-commerce App</h3>
+            <p>
+              Full mobile shopping experience with product listing, cart, checkout, and user
+              authentication.
+            </p>
+            <p class="chip-list">
+              <span class="chip">State Management</span>
+              <span class="chip">Firebase</span>
+              <span class="chip">REST APIs</span>
+            </p>
+            <a class="btn btn-tertiary" href="https://github.com/" target="_blank" rel="noopener noreferrer">
+              View on GitHub
+            </a>
+          </article>
+
+          <article class="card project-card reveal reveal-delay-1">
+            <h3>Service Booking App</h3>
+            <p>
+              App for appointment scheduling, live booking status, and push notification reminders.
+            </p>
+            <p class="chip-list">
+              <span class="chip">Cubit</span>
+              <span class="chip">Google Maps</span>
+              <span class="chip">Payment</span>
+            </p>
+            <a class="btn btn-tertiary" href="https://github.com/" target="_blank" rel="noopener noreferrer">
+              View on GitHub
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="container">
+        <h2 class="section-title reveal">Skills</h2>
+        <div class="skills-grid reveal reveal-delay-1">
+          <article class="skill-item">
+            <h3>Dart</h3>
+            <div class="progress"><span style="--value: 92%"></span></div>
+          </article>
+          <article class="skill-item">
+            <h3>OOP</h3>
+            <div class="progress"><span style="--value: 90%"></span></div>
+          </article>
+          <article class="skill-item">
+            <h3>Flutter Widgets</h3>
+            <div class="progress"><span style="--value: 94%"></span></div>
+          </article>
+          <article class="skill-item">
+            <h3>State Management (Bloc & Cubit)</h3>
+            <div class="progress"><span style="--value: 91%"></span></div>
+          </article>
+          <article class="skill-item">
+            <h3>APIs</h3>
+            <div class="progress"><span style="--value: 89%"></span></div>
+          </article>
+          <article class="skill-item">
+            <h3>Firebase</h3>
+            <div class="progress"><span style="--value: 87%"></span></div>
+          </article>
+          <article class="skill-item">
+            <h3>Google Maps</h3>
+            <div class="progress"><span style="--value: 84%"></span></div>
+          </article>
+          <article class="skill-item">
+            <h3>Payment Integration</h3>
+            <div class="progress"><span style="--value: 82%"></span></div>
+          </article>
+          <article class="skill-item">
+            <h3>Responsive Design</h3>
+            <div class="progress"><span style="--value: 90%"></span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="container">
+        <h2 class="section-title reveal">Services</h2>
+        <div class="grid cards-grid">
+          <article class="card service-card reveal">
+            <div class="service-icon" aria-hidden="true">📱</div>
+            <h3>Mobile App Development</h3>
+            <p>Build fast, scalable Flutter apps for Android and iOS from idea to launch.</p>
+          </article>
+          <article class="card service-card reveal reveal-delay-1">
+            <div class="service-icon" aria-hidden="true">🔗</div>
+            <h3>API Integration</h3>
+            <p>Connect apps with RESTful APIs, authentication, and robust data handling.</p>
+          </article>
+          <article class="card service-card reveal reveal-delay-2">
+            <div class="service-icon" aria-hidden="true">🎨</div>
+            <h3>UI Implementation</h3>
+            <p>Turn modern designs into responsive, pixel-accurate, and accessible interfaces.</p>
+          </article>
+          <article class="card service-card reveal">
+            <div class="service-icon" aria-hidden="true">⚡</div>
+            <h3>App Optimization</h3>
+            <p>Improve app performance, startup time, memory usage, and user experience.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="feedback" class="section">
+      <div class="container">
+        <h2 class="section-title reveal">Client Feedback</h2>
+        <div class="testimonial-wrapper reveal reveal-delay-1">
+          <div class="testimonial-track" id="testimonialTrack">
+            <article class="testimonial-card active">
+              <p>
+                "Ahmed delivered our MVP quickly with clean architecture and smooth UX. Communication was
+                excellent throughout."
+              </p>
+              <h3>- Sarah M., Startup Founder</h3>
+            </article>
+            <article class="testimonial-card">
+              <p>
+                "Our e-commerce app became significantly faster after his optimization work. Highly
+                recommended."
+              </p>
+              <h3>- Omar A., Product Manager</h3>
+            </article>
+            <article class="testimonial-card">
+              <p>
+                "Reliable freelancer who understands business requirements and turns them into working
+                features."
+              </p>
+              <h3>- Nour K., Agency Lead</h3>
+            </article>
+          </div>
+          <div class="testimonial-dots" id="testimonialDots" aria-label="Testimonials navigation"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact" class="site-footer section">
+    <div class="container footer-content">
+      <div>
+        <h2>Let's Connect</h2>
+        <p>Phone: <a href="tel:+201061239813">+201061239813</a></p>
+        <p>Email: <a href="mailto:or738393@gmail.com">or738393@gmail.com</a></p>
+      </div>
+      <div class="social-links">
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a>
+        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
