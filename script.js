@@ -1,4 +1,3 @@
-// Handle theme persistence and toggle behavior
 const themeToggle = document.getElementById("themeToggle");
 const themeIcon = themeToggle.querySelector(".theme-icon");
 const savedTheme = localStorage.getItem("theme");
@@ -15,7 +14,6 @@ themeToggle.addEventListener("click", () => {
   localStorage.setItem("theme", isDark ? "dark" : "light");
 });
 
-// Mobile menu toggle
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
 const navItems = navLinks.querySelectorAll("a");
@@ -32,23 +30,19 @@ navItems.forEach((item) => {
   });
 });
 
-// Scroll reveal animation
 const revealElements = document.querySelectorAll(".reveal");
 const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("reveal-visible");
-        revealObserver.unobserve(entry.target);
       }
     });
   },
-  { threshold: 0.15 }
+  { threshold: 0.2, rootMargin: "0px 0px -10% 0px" }
 );
-
 revealElements.forEach((el) => revealObserver.observe(el));
 
-// Animate skill bars on scroll
 const progressBars = document.querySelectorAll(".progress span");
 const skillObserver = new IntersectionObserver(
   (entries, observer) => {
@@ -62,23 +56,79 @@ const skillObserver = new IntersectionObserver(
   },
   { threshold: 0.45 }
 );
-
 progressBars.forEach((bar) => skillObserver.observe(bar));
 
-// Testimonial slider with dots and autoplay
+const headlineEl = document.getElementById("typingHeadline");
+const fullHeadline = "Creative Flutter Developer | Turning Ideas into Mobile Apps";
+let typedIndex = 0;
+function typeHeadline() {
+  if (!headlineEl) return;
+  headlineEl.textContent = fullHeadline.slice(0, typedIndex);
+  typedIndex += 1;
+  if (typedIndex <= fullHeadline.length) {
+    window.setTimeout(typeHeadline, 42);
+  }
+}
+headlineEl.textContent = "";
+typeHeadline();
+
+const sections = document.querySelectorAll("main section, footer");
+const navMap = Array.from(navItems).map((item) => ({
+  link: item,
+  id: item.getAttribute("href")?.replace("#", "")
+}));
+
+function setActiveNavLink() {
+  const scrollPosition = window.scrollY + 140;
+  let activeId = "";
+  sections.forEach((section) => {
+    if (section.offsetTop <= scrollPosition) {
+      activeId = section.id;
+    }
+  });
+  navMap.forEach(({ link, id }) => {
+    link.classList.toggle("active", id === activeId);
+  });
+}
+
+const backToTop = document.getElementById("backToTop");
+backToTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+window.addEventListener("scroll", () => {
+  backToTop.classList.toggle("show", window.scrollY > 500);
+  setActiveNavLink();
+});
+setActiveNavLink();
+
+const testimonialTrack = document.getElementById("testimonialTrack");
+const testimonialWrapper = document.getElementById("testimonialWrapper");
 const testimonials = Array.from(document.querySelectorAll(".testimonial-card"));
 const dotsContainer = document.getElementById("testimonialDots");
+const prevBtn = document.getElementById("prevTestimonial");
+const nextBtn = document.getElementById("nextTestimonial");
 let currentSlide = 0;
+let autoPlayTimer = null;
+let startX = 0;
+let endX = 0;
 
 function setActiveSlide(index) {
-  testimonials.forEach((card, i) => {
-    card.classList.toggle("active", i === index);
-  });
+  const safeIndex = (index + testimonials.length) % testimonials.length;
+  currentSlide = safeIndex;
+  testimonialTrack.style.transform = `translateX(-${safeIndex * 100}%)`;
 
-  const dots = dotsContainer.querySelectorAll("button");
-  dots.forEach((dot, i) => {
-    dot.classList.toggle("active", i === index);
+  testimonials.forEach((card, i) => {
+    card.classList.toggle("active", i === safeIndex);
   });
+  dotsContainer.querySelectorAll("button").forEach((dot, i) => {
+    dot.classList.toggle("active", i === safeIndex);
+  });
+}
+
+function startAutoPlay() {
+  clearInterval(autoPlayTimer);
+  autoPlayTimer = setInterval(() => setActiveSlide(currentSlide + 1), 4200);
 }
 
 testimonials.forEach((_, index) => {
@@ -86,15 +136,36 @@ testimonials.forEach((_, index) => {
   dot.type = "button";
   dot.setAttribute("aria-label", `Go to testimonial ${index + 1}`);
   dot.addEventListener("click", () => {
-    currentSlide = index;
-    setActiveSlide(currentSlide);
+    setActiveSlide(index);
+    startAutoPlay();
   });
   dotsContainer.appendChild(dot);
 });
 
-setActiveSlide(currentSlide);
+prevBtn.addEventListener("click", () => {
+  setActiveSlide(currentSlide - 1);
+  startAutoPlay();
+});
+nextBtn.addEventListener("click", () => {
+  setActiveSlide(currentSlide + 1);
+  startAutoPlay();
+});
 
-setInterval(() => {
-  currentSlide = (currentSlide + 1) % testimonials.length;
-  setActiveSlide(currentSlide);
-}, 4200);
+testimonialWrapper.addEventListener("touchstart", (event) => {
+  startX = event.touches[0].clientX;
+});
+testimonialWrapper.addEventListener("touchmove", (event) => {
+  endX = event.touches[0].clientX;
+});
+testimonialWrapper.addEventListener("touchend", () => {
+  const swipeDistance = endX - startX;
+  if (Math.abs(swipeDistance) > 40) {
+    setActiveSlide(currentSlide + (swipeDistance < 0 ? 1 : -1));
+    startAutoPlay();
+  }
+  startX = 0;
+  endX = 0;
+});
+
+setActiveSlide(0);
+startAutoPlay();

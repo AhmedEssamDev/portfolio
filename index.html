@@ -14,13 +14,18 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="site-header">
     <nav class="navbar container">
       <a href="#home" class="brand" aria-label="Ahmed Essam home">Ahmed Essam</a>
-
       <button
         class="menu-toggle"
         id="menuToggle"
@@ -33,7 +38,6 @@
         <span></span>
         <span></span>
       </button>
-
       <ul class="nav-links" id="navLinks">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
@@ -44,7 +48,6 @@
         <li><a href="#feedback">Feedback</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-
       <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
         <span class="theme-icon" aria-hidden="true">🌙</span>
       </button>
@@ -57,17 +60,15 @@
         <div class="hero-content reveal">
           <p class="eyebrow">Flutter Developer Portfolio</p>
           <h1>Ahmed Essam</h1>
-          <p class="hero-headline">
-            Creative Flutter Developer | Turning Ideas into Mobile Apps
-          </p>
+          <p class="hero-headline" id="typingHeadline">Creative Flutter Developer | Turning Ideas into Mobile Apps</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#" download>Download CV</a>
+            <a class="btn btn-primary" href="assets/Ahmed_Essam_CV.pdf" download="Ahmed_Essam_CV.pdf">Download CV</a>
             <a class="btn btn-secondary" href="#projects">View Projects</a>
           </div>
         </div>
         <div class="hero-visual reveal reveal-delay-1">
           <div class="avatar-card">
-            <img class="profile-photo" src="assets/1.jpeg" alt="Ahmed Essam profile photo" />
+            <img class="profile-photo floating" src="assets/1.jpeg" alt="Ahmed Essam profile photo" />
             <p>Ahmed Essam - Flutter Developer</p>
           </div>
         </div>
@@ -108,36 +109,56 @@
     <section id="projects" class="section">
       <div class="container">
         <h2 class="section-title reveal">Projects</h2>
-        <div class="grid cards-grid">
+        <div class="grid cards-grid projects-grid">
           <article class="card project-card reveal">
-            <h3>E-commerce App</h3>
-            <p>
-              Full mobile shopping experience with product listing, cart, checkout, and user
-              authentication.
-            </p>
+            <div class="project-media">
+              <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=900&q=80" alt="Todo app preview" />
+              <div class="project-overlay">
+                <a class="btn btn-tertiary" href="https://github.com/AhmedEssamDev" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a class="btn btn-secondary" href="#" target="_blank" rel="noopener noreferrer">Google Play</a>
+              </div>
+            </div>
+            <h3>Todo App</h3>
+            <p>Minimal and productive task manager app with reminders, filtering, and local sync.</p>
             <p class="chip-list">
-              <span class="chip">State Management</span>
+              <span class="chip">Bloc</span>
               <span class="chip">Firebase</span>
-              <span class="chip">REST APIs</span>
+              <span class="chip">Local Storage</span>
             </p>
-            <a class="btn btn-tertiary" href="https://github.com/" target="_blank" rel="noopener noreferrer">
-              View on GitHub
-            </a>
           </article>
 
           <article class="card project-card reveal reveal-delay-1">
-            <h3>Service Booking App</h3>
-            <p>
-              App for appointment scheduling, live booking status, and push notification reminders.
-            </p>
+            <div class="project-media">
+              <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=900&q=80" alt="News app preview" />
+              <div class="project-overlay">
+                <a class="btn btn-tertiary" href="https://github.com/AhmedEssamDev" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a class="btn btn-secondary" href="#" target="_blank" rel="noopener noreferrer">Google Play</a>
+              </div>
+            </div>
+            <h3>News App</h3>
+            <p>Real-time news app with categorized feeds, search, and bookmark support for users.</p>
             <p class="chip-list">
+              <span class="chip">APIs</span>
               <span class="chip">Cubit</span>
-              <span class="chip">Google Maps</span>
-              <span class="chip">Payment</span>
+              <span class="chip">Caching</span>
             </p>
-            <a class="btn btn-tertiary" href="https://github.com/" target="_blank" rel="noopener noreferrer">
-              View on GitHub
-            </a>
+          </article>
+
+          <article class="card project-card reveal reveal-delay-2">
+            <div class="project-media">
+              <img src="https://images.unsplash.com/photo-1607082350899-7e105aa886ae?auto=format&fit=crop&w=900&q=80" alt="E-commerce app preview" />
+              <div class="project-overlay">
+                <a class="btn btn-tertiary" href="https://github.com/AhmedEssamDev" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a class="btn btn-secondary" href="#" target="_blank" rel="noopener noreferrer">Google Play</a>
+              </div>
+            </div>
+            <h3>E-commerce App</h3>
+            <p>Complete shopping app with authentication, cart, checkout flow, and order tracking.</p>
+            <p class="chip-list">
+              <span class="chip">Firebase</span>
+              <span class="chip">Bloc</span>
+              <span class="chip">REST APIs</span>
+            </p>
           </article>
         </div>
       </div>
@@ -147,42 +168,15 @@
       <div class="container">
         <h2 class="section-title reveal">Skills</h2>
         <div class="skills-grid reveal reveal-delay-1">
-          <article class="skill-item">
-            <h3>Dart</h3>
-            <div class="progress"><span style="--value: 92%"></span></div>
-          </article>
-          <article class="skill-item">
-            <h3>OOP</h3>
-            <div class="progress"><span style="--value: 90%"></span></div>
-          </article>
-          <article class="skill-item">
-            <h3>Flutter Widgets</h3>
-            <div class="progress"><span style="--value: 94%"></span></div>
-          </article>
-          <article class="skill-item">
-            <h3>State Management (Bloc & Cubit)</h3>
-            <div class="progress"><span style="--value: 91%"></span></div>
-          </article>
-          <article class="skill-item">
-            <h3>APIs</h3>
-            <div class="progress"><span style="--value: 89%"></span></div>
-          </article>
-          <article class="skill-item">
-            <h3>Firebase</h3>
-            <div class="progress"><span style="--value: 87%"></span></div>
-          </article>
-          <article class="skill-item">
-            <h3>Google Maps</h3>
-            <div class="progress"><span style="--value: 84%"></span></div>
-          </article>
-          <article class="skill-item">
-            <h3>Payment Integration</h3>
-            <div class="progress"><span style="--value: 82%"></span></div>
-          </article>
-          <article class="skill-item">
-            <h3>Responsive Design</h3>
-            <div class="progress"><span style="--value: 90%"></span></div>
-          </article>
+          <article class="skill-item"><h3><i class="fa-solid fa-code skill-icon"></i> Dart</h3><div class="progress"><span style="--value: 92%"></span></div></article>
+          <article class="skill-item"><h3><i class="fa-solid fa-cubes skill-icon"></i> OOP</h3><div class="progress"><span style="--value: 90%"></span></div></article>
+          <article class="skill-item"><h3><i class="fa-brands fa-flutter skill-icon"></i> Flutter Widgets</h3><div class="progress"><span style="--value: 94%"></span></div></article>
+          <article class="skill-item"><h3><i class="fa-solid fa-diagram-project skill-icon"></i> State Management (Bloc & Cubit)</h3><div class="progress"><span style="--value: 91%"></span></div></article>
+          <article class="skill-item"><h3><i class="fa-solid fa-plug skill-icon"></i> APIs</h3><div class="progress"><span style="--value: 89%"></span></div></article>
+          <article class="skill-item"><h3><i class="fa-solid fa-fire skill-icon"></i> Firebase</h3><div class="progress"><span style="--value: 87%"></span></div></article>
+          <article class="skill-item"><h3><i class="fa-solid fa-map-location-dot skill-icon"></i> Google Maps</h3><div class="progress"><span style="--value: 84%"></span></div></article>
+          <article class="skill-item"><h3><i class="fa-solid fa-credit-card skill-icon"></i> Payment Integration</h3><div class="progress"><span style="--value: 82%"></span></div></article>
+          <article class="skill-item"><h3><i class="fa-solid fa-mobile-screen-button skill-icon"></i> Responsive Design</h3><div class="progress"><span style="--value: 90%"></span></div></article>
         </div>
       </div>
     </section>
@@ -218,30 +212,23 @@
     <section id="feedback" class="section">
       <div class="container">
         <h2 class="section-title reveal">Client Feedback</h2>
-        <div class="testimonial-wrapper reveal reveal-delay-1">
+        <div class="testimonial-wrapper reveal reveal-delay-1" id="testimonialWrapper">
+          <button class="slider-arrow prev" id="prevTestimonial" aria-label="Previous testimonial"><i class="fa-solid fa-chevron-left"></i></button>
           <div class="testimonial-track" id="testimonialTrack">
             <article class="testimonial-card active">
-              <p>
-                "Ahmed delivered our MVP quickly with clean architecture and smooth UX. Communication was
-                excellent throughout."
-              </p>
-              <h3>- Sarah M., Startup Founder</h3>
+              <div class="testimonial-user"><img src="https://i.pravatar.cc/80?img=32" alt="Sarah profile" /><h3>Sarah M., Startup Founder</h3></div>
+              <p>"Ahmed delivered our MVP quickly with clean architecture and smooth UX. Communication was excellent throughout."</p>
             </article>
             <article class="testimonial-card">
-              <p>
-                "Our e-commerce app became significantly faster after his optimization work. Highly
-                recommended."
-              </p>
-              <h3>- Omar A., Product Manager</h3>
+              <div class="testimonial-user"><img src="https://i.pravatar.cc/80?img=12" alt="Omar profile" /><h3>Omar A., Product Manager</h3></div>
+              <p>"Our e-commerce app became significantly faster after his optimization work. Highly recommended."</p>
             </article>
             <article class="testimonial-card">
-              <p>
-                "Reliable freelancer who understands business requirements and turns them into working
-                features."
-              </p>
-              <h3>- Nour K., Agency Lead</h3>
+              <div class="testimonial-user"><img src="https://i.pravatar.cc/80?img=5" alt="Nour profile" /><h3>Nour K., Agency Lead</h3></div>
+              <p>"Reliable freelancer who understands business requirements and turns them into working features."</p>
             </article>
           </div>
+          <button class="slider-arrow next" id="nextTestimonial" aria-label="Next testimonial"><i class="fa-solid fa-chevron-right"></i></button>
           <div class="testimonial-dots" id="testimonialDots" aria-label="Testimonials navigation"></div>
         </div>
       </div>
@@ -250,17 +237,21 @@
 
   <footer id="contact" class="site-footer section">
     <div class="container footer-content">
-      <div>
+      <div class="contact-list">
         <h2>Let's Connect</h2>
-        <p>Phone: <a href="tel:+201061239813">+201061239813</a></p>
-        <p>Email: <a href="mailto:or738393@gmail.com">or738393@gmail.com</a></p>
+        <p><i class="fa-solid fa-phone contact-icon"></i> <a href="tel:+201061239813">+201061239813</a></p>
+        <p><i class="fa-solid fa-envelope contact-icon"></i> <a href="mailto:ahmed.essam.developer.flutter@gmail.com">ahmed.essam.developer.flutter@gmail.com</a></p>
       </div>
       <div class="social-links">
-        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GitHub</a>
-        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
+        <a href="https://github.com/AhmedEssamDev" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/ahmed-essam-developer" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
       </div>
     </div>
   </footer>
+
+  <button id="backToTop" class="back-to-top" type="button" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
 
   <script src="script.js"></script>
 </body>
